@@ -1,9 +1,9 @@
 'use strict'
 
-const Pokemons = require('./pokemon') //require the model
+const Vehicles = require('./vehicles') //require the model
 
 async function init() {
-    await Pokemons.sync();
+    await Vehicles.sync();
   
     
     //sync the model
@@ -11,6 +11,6 @@ async function init() {
 
 init();
 module.exports = {
-    Pokemons //export the model
+    Vehicles //export the model
 };
 

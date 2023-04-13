@@ -3,27 +3,27 @@ let dbConnect = require("../dbConnect");
 const sequelizeInstance = dbConnect.Sequelize;
 
 
-class Pokemons extends Model { }
+class Vehicles extends Model { }
 //Sequelize will create this table if it doesn't exist on startup
-Pokemons.init({
-    // id: {
-    //     type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true
-    // },
+Vehicles.init({
+    id: {
+        type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true
+    },
 
-    Name: {
+    make: {
         type: DataTypes.STRING, allowNull: false, required: true,
      
     },
-    url: {
+    VTN: {
         type: DataTypes.STRING, allowNull: false, required: true
     },
    
    
 },
     {
-        sequelize: sequelizeInstance, modelName: 'pokemons', timestamps: true, freezeTableName: true
+        sequelize: sequelizeInstance, modelName: 'vehicles', timestamps: true, freezeTableName: true
     }
 )
-module.exports = Pokemons;
+module.exports = Vehicles;
 
 

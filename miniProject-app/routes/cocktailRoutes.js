@@ -5,7 +5,7 @@ const Controllers = require("../controllers");
 
 router.get('/', (req, res) => {
    
-    Controllers.cocktailController.storeCocktails(req,res);
+    Controllers.cocktailController.getCocktails(req,res);
 })
 
 router.post('/create', (req, res) => {

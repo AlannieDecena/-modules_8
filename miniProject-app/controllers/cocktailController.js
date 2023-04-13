@@ -2,7 +2,7 @@
 const Models = require("../models");
 
 
-const getCocktails = (res) => {
+const getCocktails = (req, res) => {
     Models.Cocktails.findAll({}).then(function (data) {
         res.send({ result: 200, data: data })
     }).catch(err => {

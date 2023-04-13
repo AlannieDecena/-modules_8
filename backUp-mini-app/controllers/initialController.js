@@ -3,26 +3,27 @@ const axios = require('axios');
 const Models = require('../models');
 const { Op } = require("sequelize");
 
-const storePokemon = async () => {
+const storeVehicles = async () => {
     try {
 
-    let response = await axios.get('https://pokeapi.co/api/v2/pokemon')
+    let response = await axios.get('https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json')
     
-        const pokes = response.data;
-        console.log(response.data)
+        const cars = response.data.Results;
+        console.log(cars)
 
-        for(let poke of pokes) {
+        for(let car of cars) {
         
 
-        const formatPoke ={
-            url: poke.url,
-            Name: poke.name
+        const formatCars ={
+            id: car.MakeId,
+            make: car.MakeName,
+            VTN: car.VehicleTypeName
         
         };
 
-        let [newPoke, created ] = await Models.Pokemons.findOrCreate({
-            where: {Name: poke.name},
-            defaults: formatPoke
+        let [newCar, created ] = await Models.Vehicles.findOrCreate({
+            where: {id: car.MakeId},
+            defaults: formatCars
 
         })
        
@@ -37,5 +38,5 @@ const storePokemon = async () => {
 
 
 module.exports = {
-    storePokemon
+    storeVehicles
 }

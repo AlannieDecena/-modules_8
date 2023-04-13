@@ -1,6 +1,6 @@
 module.exports={
     initialController: require('./initialController'),
-    pokeController: require('./pokeController'),
+    vehicleController: require('./vehicleController'),
 
 
     }
